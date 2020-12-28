@@ -1,4 +1,7 @@
 <div class="container mt-3">
+  <p id="notice" class="text-success">
+    <%= notice %>
+  </p>
   <h3>Books</h3>
   <div class="row">
 <table>
@@ -25,7 +28,7 @@
         <%= link_to "Edit", edit_book_path(book) %>
       </td>
       <td>
-        <%= link_to "Destroy", book_path(book), method: :delete %>
+        <%= link_to "Destroy", book_path(book), method: :delete, "data-confirm" => "Are you sure?" %>
       </td>
     </tr>
     <% end %>
@@ -35,6 +38,7 @@
 
     <%= form_with model:@book, local:true do |f| %>
     <h4>New book</h4>
+    <%= render 'books/error', book:@book %>
       <p>Title</p>
       <%= f.text_field :title %>
       <p>Body</p>

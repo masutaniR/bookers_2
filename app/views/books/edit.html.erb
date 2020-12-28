@@ -1,6 +1,7 @@
 <div class="container mt-3">
   <%= form_with model:@book, local:true do |f| %>
   <h4>Editing Book</h4>
+  <%= render 'books/error', book:@book %>
   <p>Title</p>
   <%= f.text_field :title %>
   <p>Body</p>
