@@ -1,13 +1,26 @@
 <div class="container mt-3">
+  <div class="row">
+    <h4>Editing Book</h4>
+  </div>
+  <div class="row">
+    <div class="col-xs-5">
+      <%= render 'books/error', book:@book %>
+    </div>
+  </div>
+  <div class="row">
   <%= form_with model:@book, local:true do |f| %>
-  <h4>Editing Book</h4>
-  <%= render 'books/error', book:@book %>
-  <p>Title</p>
-  <%= f.text_field :title %>
-  <p>Body</p>
-  <%= f.text_area :body %>
-  <%= f.submit 'Update Book' %>
+  <div class="form-group">
+    <p class="mb-0">Title</p>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <p class="mb-0">Body</p>
+    <%= f.text_area :body, class: "form-control" %>
+  </div>
+  <%= f.submit 'Update Book', class: "btn btn-success mb-3" %>
   <% end %>
-
-<%= link_to "Show", book_path(@book) %> | <%= link_to "Back", books_path %>
+  </div>
+<div class="row">
+  <%= link_to "Show", book_path(@book) %> | <%= link_to "Back", books_path %>
+</div>
 </div>
